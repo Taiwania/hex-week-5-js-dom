@@ -35,3 +35,37 @@ let data = [
     rate: 7
   }
 ]
+
+const ticketCardArea = document.querySelector('.ticketCard-area')
+for (let i = 0; i < data.length; i++) {
+  ticketCardArea.innerHTML += `
+  <li class="ticketCard">
+<div class="ticketCard-img">
+  <a href="#">
+    <img src="${data[i].imgUrl}" alt="">
+  </a>
+  <div class="ticketCard-region">${data[i].area}</div>
+  <div class="ticketCard-rank">${data[i].rate}</div>
+</div>
+<div class="ticketCard-content">
+  <div>
+    <h3>
+      <a href="#" class="ticketCard-name">${data[i].name}</a>
+    </h3>
+    <p class="ticketCard-description">
+    ${data[i].description}
+    </p>
+  </div>
+  <div class="ticketCard-info">
+    <p class="ticketCard-num">
+      <span><i class="fas fa-exclamation-circle"></i></span>
+      剩下最後 <span id="ticketCard-num"> ${data[i].group} </span> 組
+    </p>
+    <p class="ticketCard-price">
+      TWD <span id="ticketCard-price">$${data[i].price}</span>
+    </p>
+  </div>
+</div>
+</li>
+  `
+}
